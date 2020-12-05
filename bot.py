@@ -49,6 +49,11 @@ async def xra(ctx):
     random.shuffle(quotes)
     await ctx.send(quotes[0])
 
+#command to get flubbot to say "MY name Jeff"
+@bot.command()
+async def jeff(ctx):
+    await ctx.send("My Name Jeff!")
+
 #command to get flubbot to join an audio channel
 @bot.command()
 async def flub(ctx):
