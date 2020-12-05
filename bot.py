@@ -111,4 +111,4 @@ def speak():
     msg = statments[0]
     return msg
 
-bot.run(test_token)
+bot.run(bot_token)
