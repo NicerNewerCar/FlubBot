@@ -83,7 +83,7 @@ async def on_message(message):
     if num >= 90:
         await message.channel.send(speak())
     if num <= 35:
-        emojis = ['<:Steve:783174768618111046>','<:pog:783174768618111046>',]
+        emojis = ['<:Steve:783174768618111046>','<:pog:783174768618111046>','<:doge_rape:783174738016206908>','<:pickleflub:719426147573825606>','<:flubneedle:719426220294668298>','<:flubeyeR:719427389440131075>','<:flubeyeL:719426985138454592>']
         random.shuffle(emojis)
         await message.add_reaction(emojis[0])
 
