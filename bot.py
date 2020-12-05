@@ -9,11 +9,8 @@ import asyncio
 
 bot = commands.Bot(command_prefix='$')
 
-#1)voice flub
+#1) voice flub
 #2) the ai will take an image on the server and put flub on it in a random place
-#3) command for flub role to ban people with a command 4
-#4) ban on elmo
-#5)fLUB PORN BOT?
 #5) Flub and bad together in same message flub bot goes brrrrrrrrrr
 #6) repost deleted messages with somesort of insult
 
@@ -65,6 +62,15 @@ async def on_message(message):
     if message.author == bot.user:
         return
     await bot.process_commands(message)
+
+    #If flub and bad are together in the same message then flubbot will kick the
+    #user and then PM them an invite
+    if 'flub' in message.content.lower() and 'bad' in message.content.lower():
+        await message.channel.send('<@'+str(message.author.id)+'> ,BE GONE HEATHEN!')
+        await message.author.send('https://discord.gg/W9XWFGs')
+        await (message.author).kick(reason=None)
+
+
     num = random.randint(0,101)
     try:
         if(message.attachments[0].id > 0) and num > 95:
@@ -76,6 +82,10 @@ async def on_message(message):
         pass
     if num >= 90:
         await message.channel.send(speak())
+    if num <= 35:
+        emojis = ['<:Steve:783174768618111046>','<:pog:783174768618111046>',]
+        random.shuffle(emojis)
+        await message.add_reaction(emojis[0])
 
 
 #Functions:
@@ -101,4 +111,4 @@ def speak():
     msg = statments[0]
     return msg
 
-bot.run(bot_token)
+bot.run(test_token)
