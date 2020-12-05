@@ -11,7 +11,6 @@ bot = commands.Bot(command_prefix='$')
 
 #1) voice flub
 #2) the ai will take an image on the server and put flub on it in a random place
-#5) Flub and bad together in same message flub bot goes brrrrrrrrrr
 #6) repost deleted messages with somesort of insult
 
 @bot.event
@@ -87,6 +86,10 @@ async def on_message(message):
         random.shuffle(emojis)
         await message.add_reaction(emojis[0])
 
+@bot.event
+async def on_message_delete(message):
+    if message.author.id != (bot.user.id): #Checks the ID, if AuthorID = BotID, return. Else, continue.
+        await message.channel.send('<@'+str(message.author.id)+'> \"'+ message.content +'\", what are you trying to hide there bud?') #Send the message.
 
 #Functions:
 def dreamer(num, url):
